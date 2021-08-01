@@ -84,12 +84,6 @@ class App {
     //form.addEventListener("submit", this._newWorkout.bind(this));
     inputType.addEventListener("change", this._toggleElevationField);
     sidebar.addEventListener("click", this._clickHandler.bind(this));
-
-    // const deleteWorkouts = document.querySelectorAll(".glow-on-hover_delete");
-    // containerWorkouts.addEventListener("click", this._moveToPopup.bind(this));
-    // deleteWorkouts.forEach(e =>
-    //   e.addEventListener("click", this._deleteWorkout.bind(this))
-    // );
   }
   _reset() {
     localStorage.removeItem("workouts");
@@ -458,26 +452,6 @@ class App {
       formList.insertAdjacentHTML("afterend", html);
     }
   }
-  // _moveToPopup(e) {
-  //   const workoutEl = e.target.closest(".workout");
-  //   // const workoutEl2=
-  //   const workoutEl2 = e.target.closest(".glow-on-hover");
-
-  //   if (!workoutEl || workoutEl2) return;
-
-  //   const workout = this.#workouts.find(
-  //     work => work.id === workoutEl.dataset.id
-  //   );
-
-  //   this.#map.setView(workout.coords, this.#mapZoomLevel, {
-  //     animate: true,
-  //     pan: {
-  //       duration: 1,
-  //     },
-  //   });
-  //   // using the public interface
-  //   // workout.click();
-  // }
   _setLocalStorage() {
     localStorage.setItem("workouts", JSON.stringify(this.#workouts));
   }
@@ -490,22 +464,6 @@ class App {
       this._renderWorkout(work);
     });
   }
-
-  // _deleteWorkout(e) {
-  //   const id = e.target.closest(".workout").dataset.id;
-
-  //   const set = this.#workouts.filter(e => Number(e.id) !== Number(id));
-  //   this.#workouts = set;
-  //   localStorage.setItem("workouts", JSON.stringify(this.#workouts));
-  //   this._deleteMarker();
-  //   e.target.closest(".workout").remove();
-
-  //   //location.reload();
-  // }
-  // _deleteMarker() {
-  //   const tempMarker = this;
-  //   this.#map.removeLayer(tempMarker);
-  // }
 }
 
 const app = new App();
